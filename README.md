@@ -2,11 +2,14 @@
 
 Best Practices articles treating simulation software validation and
 physical validation, to be submitted to LiveCoMS (Living Journal of
-Computational Molecular Science, [www.livecomsjournal.org](http://www.livecomsjournal.org)).
+Computational Molecular
+Science, [www.livecomsjournal.org](http://www.livecomsjournal.org)).
 We plan to divide the topic into two largely independent documents:
 
-1. Best practices for simulation software verification (developer best practices)
-2. Best practices for physical validation of simulation results (user best practices)
+1. Best practices for simulation software verification (developer best
+   practices)
+2. Best practices for physical validation of simulation results (user
+   best practices)
 
 The groundwork for these articles was laid during the Best Practices
 workshop organized by Michael Shirts on behalf of MolSSI, held at NIST
@@ -30,6 +33,46 @@ developers to detect and localize errors in simulation software.
 fulfill basic physical validity, including checks of the sampled
 ensemble, the equipartition principle, conservation / drift of
 constants, correlation times (to be extended).
+
+## Author guidelines
+A few suggestions to simplify collaboration on a LaTeX document:
+
+* Use
+  [issues](https://github.com/shirtsgroup/software-physical-validation/issues)
+  and 
+  [pull requests](https://github.com/shirtsgroup/software-physical-validation/pulls)
+  to keep track of to-dos, discuss issues and review and comment text.
+* We are using the template of LiveCoMS. Have a look at their sample
+  files
+  [[1](https://github.com/livecomsjournal/article_templates/blob/master/templates/sample-document.tex),
+  [2](https://github.com/livecomsjournal/article_templates/blob/master/templates/livecoms-template-bestpractices.tex)]
+  for examples on how to use the different environments.
+* If you need to put text-related comments or to-dos directly in the
+  LaTeX files, please use
+  
+  ```
+  \comm{Your initials}{Your comment here}
+  ```
+  
+  and
+  
+  ```
+  \todo{Your todo here}
+  ```
+  
+  These commands will be compiled into the document and highlighted in
+  color. They are easy to find and filter out for release versions.
+* Make ample use of additional files included into `main.tex` via
+
+  ```
+  \include{file.tex}
+  ```
+
+  Please use at least one file per section (or even subsection, if
+  sections get very large). This should help keeping the main file
+  tidy and will make merging significantly easier.
+* Use the `siunitx` package included in the LiveCoMS template to
+  typeset units.
 
 ## License
 
