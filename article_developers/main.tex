@@ -1,21 +1,34 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% LIVECOMS ARTICLE TEMPLATE
+%%% LIVECOMS ARTICLE TEMPLATE FOR BEST PRACTICES GUIDE
 %%% ADAPTED FROM ELIFE ARTICLE TEMPLATE (8/10/2017)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% PREAMBLE 
-\documentclass[9pt]{livecoms}
+%%% PREAMBLE
+\documentclass[9pt,bestpractices]{livecoms}
 % Use the 'onehalfspacing' option for 1.5 line spacing
 % Use the 'doublespacing' option for 2.0 line spacing
-% use the 'lineno' option for adding line numbers. 
+% Use the 'lineno' option for adding line numbers.
+% The 'bestpractices' option for indicates that this is a best practices guide.
+% Omit the bestpractices option to remove the marking as a LiveCoMS paper.
 % Please note that these options may affect formatting.
 
-\usepackage[version=4]{mhchem} 
+\usepackage[version=4]{mhchem}
 \usepackage{siunitx}
 \DeclareSIUnit\Molar{M}
-\newcommand{\versionnumber}{0.1}  % you should update the minor
-                                  % version number in preprints and
-                                  % major version number of
-                                  % submissions.
+\usepackage[italic]{mathastext}
+\graphicspath{{figures/}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% IMPORTANT USER CONFIGURATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\versionnumber}{0.1}  % you should update the minor version number in preprints and
+                                  % major version number of submissions.
+
+%this should be the main github repository for this article
+\newcommand{\githubrepository}{\url{https://github.com/shirtsgroup/software-physical-validation}}
+
+% Comments and to-do's
 \newcommand{\comm}[2]{{\color{red}#1: \emph{#2}}}
 \newcommand{\todo}[1]{{\color{blue}TODO: \emph{#1}}}
 
@@ -32,7 +45,7 @@
 \affil[1]{Institution 1}
 \affil[2]{Institution 2}
 
-\corr{email1@example.com}{FMS}  % Correspondence emails.  FMS and FS are the appropriate authors initials. 
+\corr{email1@example.com}{FMS}  % Correspondence emails.  FMS and FS are the appropriate authors initials.
 \corr{email2@example.com}{FS}
 
 \contrib[\authfn{1}]{These authors contributed equally to this work}
@@ -41,63 +54,84 @@
 \presentadd[\authfn{3}]{Department, Institute, Country}
 \presentadd[\authfn{4}]{Department, Institute, Country}
 
+\blurb{This LiveCoMS document is maintained online on GitHub at \githubrepository; to provide feedback, suggestions, or help improve it, please visit the GitHub repository and participate via the issue tracker.}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% ARTICLE START
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
+\begin{frontmatter}
 \maketitle
 
 \begin{abstract}
   \todo{Write an abstract.}
 \end{abstract}
 
+\end{frontmatter}
+
 
 \section{Introduction}
 
-\comm{PTM}{Make sure to have a look at the template file from
-  LiveCoMS, they have some good examples. I defined two additional
-  commands that I'd suggest to use:
-  \begin{itemize}
-  \item \texttt{\textbackslash{}comm\{Your Initials\}\{Put your
-      comment here...\}} allows you to put comments directly in the
-    LaTeX code (like the one you are just reading), which can easily
-    be sorted out a later stage.
-  \item \texttt{\textbackslash{}todo\{Write your todo here...\}} works
-    in a similar way to add todo's in the text.
-  \end{itemize}
-  (By experience, comments and todos always pop up sooner or later
-  when collaboratively editing a text, so better have a uniform style
-  from the start...)}
+% Use \input{file.tex} to include additional files!
 
-\comm{PTM}{Another suggestion: I think it would be a good idea to make
-  ample use additional files included via
-  \texttt{\textbackslash{}input\{file.tex\}}, e.g. one for every
-  section (or even subsection, if sections get very large). This keeps
-  the main file tidy and should make merging significantly easier.}
 
-\comm{PTM}{A last suggestion: Using the the \texttt{siunitx} package
-  (which is included in the LiveCoMS template) makes typesetting of
-  units painless.}
+\section{Author Contributions}
+%%%%%%%%%%%%%%%%
+% This section mustt describe the actual contributions of
+% author. Since this is an electronic-only journal, there is
+% no length limit when you describe the authors' contributions,
+% so we recommend describing what they actually did rather than
+% simply categorizing them in a small number of
+% predefined roles as might be done in other journals.
+%
+% See the policies ``Policies on Authorship'' section of https://livecoms.github.io
+% for more information on deciding on authorship and author order.
+%%%%%%%%%%%%%%%%
 
-\section{Acknowledgments}
+\todo{Explain the contributions of the different authors here}
 
-\todo{Funder and other information can be given here.}
+% We suggest you preserve this comment:
+For a more detailed description of author contributions,
+see the GitHub issue tracking and changelog at \githubrepository.
 
-\nocite{*} % This command displays all refs in the bib file
+\section{Other Contributions}
+%%%%%%%%%%%%%%%
+% You should include all people who have filed issues that were
+% accepted into the paper, or that upon discussion altered what was in the paper.
+% Multiple significant contributions might mean that the contributor
+% should be moved to authorship at the discretion of the a
+%
+% See the policies ``Policies on Authorship'' section of https://livecoms.github.io for
+% more information on deciding on authorship and author order.
+%%%%%%%%%%%%%%%
+
+\todo{Explain the contributions of any non-author contributors here}
+% We suggest you preserve this comment:
+For a more detailed description of contributions from the community and others, see the GitHub issue tracking and changelog at \githubrepository.
+
+\section{Potentially Conflicting Interests}
+%%%%%%%
+%Declare any potentially competing interests, financial or otherwise
+%%%%%%%
+
+\todo{Declare any potentially conflicting interests here, whether or not they pose an actual conflict in your view.}
+
+\section{Funding Information}
+%%%%%%%
+% Authors should acknowledge funding sources here. Reference specific grants.
+%%%%%%%
+
+\todo{Put funding information here.}
+
 \bibliography{references}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% APPENDICES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\appendix
-\begin{appendixbox}
-\label{first:app}
-\section{Glossary}
-\todo{A glossary of technical terms used in the article.}
+%\appendix
 
-\end{appendixbox}
 
 \end{document}
